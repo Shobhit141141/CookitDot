@@ -1,0 +1,122 @@
+.reachus{
+    /* background-color: red; */
+    margin: auto;
+    width: 90%;
+    height: 72vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+.reachus span{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin: 30px 0 40px 0;
+    
+}
+.contactus-2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 50px;
+}
+.contactus-2 pre{
+    font-size: clamp(20px ,2.5vw , 25px);
+   
+    font-family: 'Montserrat', sans-serif;
+    margin: 15px 0 15px 0;
+    display: flex;
+    align-items: center;
+    
+}
+.contact-us-icon{
+    color: brown;
+}
+.contactus-2 pre:nth-child(3){
+    color: yellow;
+}
+.quick-links , .contact-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    width: 60%;
+    padding: 20px 0;
+    font-size: 15px;
+    
+}
+
+.quick-links{
+    width: 50%;
+    background-color: white;
+    color: black;
+    margin-right: 20px;
+}
+.reachus .icons{
+
+    width: 100%;
+    height: 60px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 25px;
+    
+   
+    position: relative;
+   
+}
+.footer-icons{
+    padding: 7px;
+    transition: linear 0.1s;
+}
+.footer-icons:hover{
+   
+    color: black;
+    
+    background-color: white;
+    padding: 7px;
+    border-radius: 50%;
+}
+@media (width<=380px) {
+    .quick-links , .contact-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        width: 60%;
+        padding: 20px 0;
+        font-size: 14px;
+        
+    }
+    
+    .quick-links{
+        width: 40%;
+        background-color: white;
+        color: black;
+        margin-right: 20px;
+    }
+
+    .reachus .icons{
+
+        width: 100%;
+        height: 60px;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 23px;
+        
+       
+        position: relative;
+       
+    }
+}

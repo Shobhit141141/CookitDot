@@ -1,0 +1,135 @@
+.single-recipe {
+    margin: 25px;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid white;
+
+    /* background-color: yellow; */
+}
+
+.loading-msg {
+    color: white;
+    width: 100%;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 25px;
+    text-align: center;
+}
+
+.single-recipe .ingredients pre {
+
+    white-space: pre-wrap;
+    line-height: 40px;
+
+}
+
+.single-recipe .recipe pre {
+    white-space: pre-wrap;
+    line-height: 40px;
+
+}
+
+.recipe h2,
+.ingredients h2 {
+    color: yellow;
+    font-family: 'Chakra Petch', sans-serif;
+    margin: 50px 0;
+}
+
+.recipe-titles {
+    width: 100%;
+    display: flex;
+
+    justify-content: space-between;
+    margin: auto;
+}
+
+.recipe-titles h1 {
+    color: yellow;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.recipe-titles img {
+    width: 250px;
+    height: 200px;
+    border: 2px solid white;
+    border-radius: 0;
+}
+
+
+.header-links2 {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px 20px 5px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid white;
+    color: white;
+    font-family: monospace;
+    cursor: pointer;
+    transition: linear 0.1s;
+    font-size: 25px;
+
+}
+
+
+.recipe-details-titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.recipe-details-titles h3 {
+    display: flex;
+    flex-direction: row;
+}
+
+.recipe-details-titles pre {
+    font-family: 'Chakra Petch', sans-serif;
+    color: yellow;
+}
+
+.header-links2:hover {
+    color: black;
+    background-color: yellow;
+    padding: 5px 20px 5px 20px;
+    font-size: 25px;
+    border: 2px solid none;
+}
+
+.recipe-options {
+    margin-left: 25px;
+    display: flex;
+    gap: 20px;
+}
+
+.recipe-titles .logo {
+    color: white;
+    font-size: 30px;
+}
+
+@media (width<=512px) {
+    .recipe-titles {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin: auto;
+    }
+
+    .recipe-titles img {
+        width: 300px;
+        height: 250px;
+        border: 2px solid white;
+        border-radius: 0;
+        margin: auto;
+    }
+
+
+}

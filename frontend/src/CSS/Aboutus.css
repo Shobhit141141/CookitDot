@@ -1,0 +1,144 @@
+.about-page {
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+
+}
+
+.aboutus {
+    color: yellow;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 5vw;
+    margin: 50px;
+    margin-top: 85px;
+}
+
+.aboutus p {
+    font-size: 3vw;
+    color: white;
+}
+
+.about-content span {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5vw;
+}
+
+.about-content span:nth-child(even) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.about-icon {
+    background-color: yellow;
+    width: 25vw;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 30px 0;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+
+}
+
+.about-icon img {
+    width: 10vw;
+    height: 10vw;
+    object-fit: cover;
+}
+
+.about-detail {
+    width: 40vw;
+}
+
+.about-detail h2 {
+    color: yellow;
+    font-size: clamp(20px, 30vw, 35px);
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.about-detail p {
+    color: white;
+    font-size: 2vw;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.about-content span:nth-child(4) {
+    margin-bottom: 80px
+}
+
+@media (width<=512px) {
+
+    .aboutus {
+        color: yellow;
+        font-family: 'Chakra Petch', sans-serif;
+        font-size: 30px;
+    }
+
+    .aboutus p {
+        font-size: 20px;
+        color: white;
+    }
+
+
+
+    .about-icon {
+        background-color: yellow;
+        width: 150px;
+        height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px 0 30px 0;
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+
+    }
+
+    .about-icon img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+    }
+
+    .about-detail {
+        width: 80vw;
+        height: 150px;
+        text-align: center;
+    }
+
+    .about-detail h2 {
+        color: yellow;
+        font-size: 25px;
+        font-family: 'Chakra Petch', sans-serif;
+    }
+
+    .about-detail p {
+        color: white;
+        font-size: 17px;
+        font-family: 'Chakra Petch', sans-serif;
+    }
+
+
+    .about-content span:nth-child(4) {
+        margin-bottom: 80px
+    }
+
+    .about-content span {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about-content span:nth-child(even) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}

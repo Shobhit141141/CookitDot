@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.loading-msg{
+    color: white;
+    width: 100%;
+    font-family: 'Chakra Petch', sans-serif;
+}

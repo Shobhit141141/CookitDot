@@ -1,0 +1,205 @@
+/* font-family: 'Bebas Neue', sans-serif;
+font-family: 'Chakra Petch', sans-serif;
+font-family: 'Satisfy', cursive;; */
+
+.home {
+
+
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.home-content {
+    width: 100vw;
+    height: 90vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.monologue {
+    width: 40%;
+
+    margin-left: 30px;
+    transform: translateY(-20px);
+
+
+}
+
+.monologue h1 {
+    font-size: 9.5vw;
+    color: white;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.monologue h1:nth-child(2) {
+    color: yellow;
+}
+
+.catalogue {
+    width: 60%;
+
+    background-color: transparent;
+    display: grid;
+    place-items: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
+}
+
+.card {
+    width: 22vw;
+    height: 18vw;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+    border-radius: 6px;
+    transition: linear 0.1s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+img {
+
+    width: 21vw;
+    height: 17vw;
+    object-fit: cover;
+    border-radius: 4px;
+
+}
+
+.card1 {
+    transform: translateY(30px);
+}
+
+.card2 {
+    transform: translateX(-20px) translateY(-60px);
+}
+
+.card1 .card:nth-child(2),
+.card2 .card:nth-child(1) {
+    background-color: yellow;
+}
+
+@media (width<=512px) {
+    .home-content {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transform: translateY(4%);
+
+
+
+
+    }
+
+    .monologue {
+        width: 100%;
+        height: 30%;
+        transform: translateY(30%);
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 75px;
+        margin-bottom: 20px;
+
+
+
+
+    }
+
+    .monologue h1 {
+        font-size: 14vw;
+        overflow-y: hidden;
+        color: white;
+        font-family: 'Chakra Petch', sans-serif;
+        text-align: start;
+    }
+
+    .monologue h1:nth-child(2) {
+        color: yellow;
+    }
+
+    .catalogue {
+        height: 70%;
+        width: 100%;
+
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .cards {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+    }
+
+    .card {
+        width: 150px;
+        height: 120px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 25px;
+        border-radius: 6px;
+        transition: linear 0.1s;
+        cursor: pointer;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    img {
+
+        width: 140px;
+        height: 110px;
+        object-fit: cover;
+        border-radius: 4px;
+
+    }
+
+    .card1 {
+        transform: translateY(30px);
+    }
+
+    .card2 {
+        transform: translateX(-20px) translateY(-30px);
+    }
+
+    .card1 .card:nth-child(2),
+    .card2 .card:nth-child(1) {
+        background-color: yellow;
+    }
+}

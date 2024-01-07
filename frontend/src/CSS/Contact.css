@@ -1,0 +1,110 @@
+/* font-family: 'Bebas Neue', sans-serif;
+font-family: 'Chakra Petch', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Satisfy', cursive;
+font-family: 'Space Mono', monospace;*/
+
+form {
+    width: 32vw;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(255, 230, 0);
+    border: 2px solid black;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+label {
+    display: block;
+
+}
+
+input[type='text'],
+input[type='email'],
+textarea {
+    width: 30vw;
+    padding: 8px;
+    border: 2px solid black;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    margin: 5px 0;
+}
+form div{
+    margin: 15px 0;
+}
+button {
+    padding: 8px 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.error-msg {
+    font-size: 15px;
+    color: rgb(202, 4, 4);
+}
+
+.contact-title {
+    font-size: 30px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+button:active {
+    
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+@media  (max-width: 768px) {
+    form {
+        width: 50vw;
+
+        /* Adjust form width for smaller screens */
+        font-size: 16px;
+        /* Adjust general font size */
+    }
+
+    input[type='text'],
+    input[type='email'],
+    textarea {
+        width: 47vw;
+        /* Adjust input width */
+    }
+
+    /* Adjust other necessary styles for smaller screens */
+    .contact-title {
+        font-size: 25px;
+        font-weight: bold;
+    }
+}
+
+@media  (max-width: 512px) {
+    form {
+        width: 80vw;
+
+        /* Adjust form width for smaller screens */
+        font-size: 16px;
+        /* Adjust general font size */
+    }
+
+    input[type='text'],
+    input[type='email'],
+    textarea {
+        width: 75vw;
+        /* Adjust input width */
+    }
+
+    /* Adjust other necessary styles for smaller screens */
+    .contact-title {
+        font-size: 25px;
+        font-weight: bold;
+    }
+}
