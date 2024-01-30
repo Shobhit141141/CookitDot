@@ -5,7 +5,7 @@ const {
     getonrecipe,
     deleterecipe,
     updaterecipe
-} = require('../controllers/recipecontroller')
+} = require('../controllers/userrecipecontroller.js')
 
 const requireAuth = require('../middleware/requireAuth.js')
 

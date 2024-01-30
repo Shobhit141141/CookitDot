@@ -6,27 +6,31 @@ const Schema = mongoose.Schema
 const Recipee = new Schema({
     title: {
         type: String,
-        requied: true
+        required: true
     },
     cuisine: {
         type: String,
-        requied: true
+        required: true
     },
     image: {
         type: String,
-        requied: true
+        required: true
     },
     time: {
         type: Number,
-        requied: true
+        required: true
     },
     recipe: {
         type: String,
-        requied: true
+        required: true
     },
     ingredients: {
         type: String,
-        requied: true
+        required: true
+    },
+    user_id: {
+        type: String,
+        required : true
     },
 
 

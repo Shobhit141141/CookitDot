@@ -3,26 +3,50 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useReactToPrint } from 'react-to-print';
 import { IoPrint } from "react-icons/io5";
 import { AiFillDelete } from "react-icons/ai";
+import { RiEditBoxFill } from "react-icons/ri";
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useAuthcontext } from "../hooks/useAuthcontext";
+import { jwtDecode } from "jwt-decode"
 
+import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 import '../CSS/Recipe.css'
 function recipe() {
     const { id } = useParams();
     const [recipee, setrecipe] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [submit, setSubmit] = useState(true)
+    const [owner, ownercheck] = useState(false)
+    const { user } = useAuthcontext()
+
     const navigate = useNavigate()
     useEffect(() => {
         const fetchrecipe = async () => {
-            const response = await fetch('https://cookit-backend.onrender.com/api/recipe/' + id)
+            const response = await fetch('http://localhost:5000/api/recipe/' + id,
+                {
+                    headers: {
+                        'Authorization': `Bearer ${user.token}`
+                    }
+                })
             const json = await response.json()
 
             if (response.ok) {
+                const token = user.token
+                const decodedToken = jwtDecode(token);
+                const userId = decodedToken._id;
+                if (json.user_id === userId) {
+                    ownercheck(true)
+                }
                 setrecipe(json)
+                console.log('hello')
+                console.log()
                 setLoading(false)
             }
         }
-        fetchrecipe()
+        if (user) {
+            fetchrecipe()
+        }
+
     }, [])
     const notify = () => toast.success('recipe deleted successfully ! ', {
         position: "top-right",
@@ -41,13 +65,18 @@ function recipe() {
     });
 
     const handleDelete = async () => {
+
+        if (!user) {
+            return
+        }
         let text = `Do you want to delete ${recipee.title} recipe`;
         if (confirm(text) == true) {
             try {
-                const res = await fetch('https://cookit-backend.onrender.com/api/recipe/' + id, {
+                const res = await fetch('http://localhost:5000/api/recipe/' + id, {
                     method: 'DELETE',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${user.token}`
                     }
                 });
 
@@ -67,17 +96,44 @@ function recipe() {
 
     };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
 
         <div>
-
+            <ToastContainer />
             <div className="recipe-options">
                 <div className="header-links2" onClick={handlePrint}>
                     <IoPrint className='home-icon2' />
                 </div>
-                <div className="header-links2" onClick={handleDelete}>
+
+                {owner && <div className="header-links2" onClick={handleDelete}>
                     <AiFillDelete className='home-icon2' />
-                </div>
+                </div>}
+
+                {owner && <Link to={`/Update/${id}`}>
+                    <div className="header-links2">
+                        <RiEditBoxFill className='home-icon2' />
+                    </div>
+                </Link>}
+
+                
             </div>
             <div className="single-recipe" ref={componentRef}>
                 {loading && (

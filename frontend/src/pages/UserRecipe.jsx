@@ -8,16 +8,14 @@ import { Suspense, lazy } from "react";
 import formatDistanceToNow from "date-fns/formatDistanceToNow"
 
 import { useAuthcontext } from "../hooks/useAuthcontext";
-import { IoMdHome } from "react-icons/io";
 
-function Recipes() {
+function UserRecipe() {
     const [search, setSearch] = useState('')
     const [recipes, setrecipes] = useState([])
     const [loading, setLoading] = useState(true)
     const [submit, setSubmit] = useState(true)
     const [noresult, setresult] = useState(false)
     const [error, seterror] = useState('')
-
 
     const { user } = useAuthcontext()
     const cataloguevariants = {
@@ -31,7 +29,7 @@ function Recipes() {
     useEffect(() => {
         const fetchRecipe = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/recipe', {
+                const response = await fetch('http://localhost:5000/api/userrecipe',{
                     headers: {
                         'Authorization': `Bearer ${user.token}`
                     }
@@ -93,20 +91,13 @@ function Recipes() {
 
                 className="header">
 
-                <h1>Try something new today </h1>
-
+                <h1>My Recipes !</h1>
                 <div className="search">
                     <input type="text" placeholder="search for recipe" onChange={(e) => setSearch(e.target.value)} />
                     <IoSearch className="search-icon" />
                 </div>
 
             </motion.header>
-
-            <Link to='/UserRecipe'>
-            <div className="my-recipe-link" >
-                <h4>My Recipes</h4>
-            </div>
-            </Link>
 
             <motion.div className="recipes-section"
                 variants={cataloguevariants}
@@ -176,4 +167,4 @@ function Recipes() {
     );
 }
 
-export default Recipes;
+export default UserRecipe;

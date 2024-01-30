@@ -1,15 +1,16 @@
 import { IoMdCloudUpload } from "react-icons/io";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import '../CSS/Create.css'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Userinput from "../components/UserSignUp";
 import { useAuthcontext } from "../hooks/useAuthcontext";
-function Create() {
+import axios from "axios";
 
+function Update() {
 
+    const { id } = useParams();
     const [title, setTitle] = useState('')
     const [time, setTime] = useState('')
     const [cuisine, setCuisine] = useState('')
@@ -17,58 +18,22 @@ function Create() {
     const [recipe, setrecipe] = useState('')
     const [image, setImage] = useState('')
     const [submit, setSubmit] = useState(false)
-    const {user} = useAuthcontext()
+    const { user } = useAuthcontext()
     const navigate = useNavigate()
 
-    const notify = () => toast.success('recipe added successfully ! ', {
+    const notify = () => toast.success('recipe updated successfully ! ', {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true,
+        draggable: false,
         progress: undefined,
         theme: "light",
     });
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-
-        if(!user){
-            alert('not logged in')
-            return
-        }
-        setSubmit(true);
-        const recipeee = { title, time, image, cuisine, recipe, ingredients }
-        const res = await fetch('http://localhost:5000/api/recipe', {
-            method: 'POST',
-            body: JSON.stringify(recipeee, null, 2),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${user.token}`
-            }
-        })
-        const json = await res.json()
-        if (res.ok) {
-            notify()
-            navigate("/Recipes")
-
-            setCuisine('')
-            setTime('')
-            setTitle('')
-            setImage('')
-            setIngredients('')
-            setrecipe('')
-
-            console.log('new recipe', json)
-            setSubmit(false)
 
 
-
-
-
-        }
-    }
     function convertToBase64(e) {
         console.log(e)
         var reader = new FileReader()
@@ -81,14 +46,59 @@ function Create() {
         }
     }
 
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': user ? `Bearer ${user.token}` : '',
+    };
+
+    const config = {
+        headers: headers,
+    };
+    useEffect(() => {
+        if(!user){
+            alert('not logged in')
+            return
+        }
+
+
+        axios.get('http://localhost:5000/api/recipe/' + id, config)
+            .then(res => {
+                setTitle(res.data.title)
+                setTime(res.data.time)
+                setCuisine(res.data.cuisine)
+                setIngredients(res.data.ingredients)
+                setrecipe(res.data.recipe)
+                setImage(res.data.image)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [user])
+
+
+    const handleSubmit = async (e) => {
+     
+        e.preventDefault()
+        setSubmit(true)
+        const recipeee = { title, time, image, cuisine, recipe, ingredients }
+        if(user){
+            axios.patch('http://localhost:5000/api/recipe/' + id, recipeee, config)
+            .then(res => {
+                notify()
+                navigate("/Recipes")
+            })
+        }
+
+    }
+
     return (
         <>
             <ToastContainer />
-
-            <div className="create" >
+            <div className="create">
 
                 <form className="add-recipe-form" onSubmit={handleSubmit}>
-                    <h2>Add new recipe</h2>
+                    <h2>Update </h2>
 
                     <label>Title</label>
                     <input
@@ -130,18 +140,20 @@ function Create() {
                         type="file"
                         accept="image/*"
                         onChange={convertToBase64}
-                        required
+
                     />
-                    <div className='submit-load1'>
-                    <button>Submit</button>
-                    {submit && <pre> </pre>}
+                    <div className="submit-load">
+                        <button>Submit</button>
+                        {submit && <pre> </pre>}
                     </div>
+
                 </form>
 
             </div>
+
         </>
     );
 }
 
 
-export default Create;
+export default Update;

@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 import { ToastContainer, toast } from 'react-toastify';
-import { motion, useAnimation, useInView } from 'framer-motion'
 import 'react-toastify/dist/ReactToastify.css';
 
 import '../CSS/Contact.css'
+
+import { motion } from 'framer-motion';
 const ContactForm = () => {
   const initialFormdata = {
     name: '',
@@ -15,7 +16,7 @@ const ContactForm = () => {
   }
 
   const [formData, setFormData] = useState(initialFormdata)
-
+  const [submit, setSubmit] = useState(false)
   const form = useRef();
   const notify = () => toast.success('Message sent successfully !', {
     position: "top-right",
@@ -31,7 +32,7 @@ const ContactForm = () => {
 
   const validateForm = () => {
     const errors = {};
-    const { name, email , message} = formData;
+    const { name, email, message } = formData;
 
     if (!name.trim()) {
       errors.name = 'Name is required';
@@ -69,14 +70,16 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     const isValid = validateForm();
     if (isValid) {
-
+      setSubmit(true)
       emailjs.sendForm('service_glkpokz', 'template_ftyxuwz', form.current, 'XhhCt2I1IkNP1b5K7')
         .then((result) => {
           console.log(result.text);
           notify();
           setFormData(initialFormdata)
+          setSubmit(false)
 
 
         }, (error) => {
@@ -84,15 +87,25 @@ const ContactForm = () => {
         });
     }
   };
-  
+
 
 
   return (
     <>
-      <pre className='contact-title'>
+      <motion.pre
+        // initial={{ opacity: 0, x: "-100%" }}
+        // whileInView={{ opacity: 1, x: 0 }}
+        // transition={{ duration: 0.4, delay: 0.6 }}
+
+        className='contact-title'>
         Suggest. Recommend. Advise.
-      </pre>
-      <form ref={form} onSubmit={handleSubmit}>
+      </motion.pre>
+      <motion.form ref={form} onSubmit={handleSubmit}
+      // initial={{ opacity: 0, x: "-100%" }}
+      // whileInView={{opacity:1,x:0}}
+      // transition={{ duration: 0.4, delay: 0.6}}
+
+      >
 
 
 
@@ -142,16 +155,19 @@ const ContactForm = () => {
               name="message"
               value={formData.message}
               onChange={handleChange}
-          
+
             />
             {errors.message && <span className="error-msg">{errors.message}</span>}
           </label>
         </div>
-        <div>
+        <div className='submit-load1'>
           <button type="submit" onClick={validateForm} className='submit-btn'>Submit</button>
+
+          {submit && <pre> </pre>}
         </div>
+
         <ToastContainer />
-      </form>
+      </motion.form>
     </>
   );
 };

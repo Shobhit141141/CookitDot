@@ -15,8 +15,9 @@
 #links {
     width: 60vw;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
+
 
 
 }
@@ -36,6 +37,7 @@
     color: white;
 
 }
+
 
 .header-links {
 
@@ -60,6 +62,8 @@
     border: none;
 
 }
+
+
 
 .var {
     width: inherit;
@@ -87,6 +91,90 @@
 #menubar {
     display: none;
 }
+
+#signup-form {
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.cross-icon {
+    color: white;
+    position: absolute;
+    right: 30vw;
+}
+
+.outer-form {
+    display: flex;
+
+}
+
+.navbar-area {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+
+.user-links {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 9px 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid white;
+
+    color: white;
+    font-family: monospace;
+    cursor: pointer;
+    transition: linear 0.1s;
+    font-size: 25px;
+
+}
+
+.user-links:hover {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 9px 15px;
+    background-color: yellow;
+    border: 2px solid white;
+
+    color: black;
+    font-family: monospace;
+    cursor: pointer;
+    transition: linear 0.1s;
+    font-size: 25px;
+
+}
+
+.username_navbar {
+    display: block;
+    position: absolute;
+
+    cursor: pointer;
+    top: 35px;
+    right: 85px;
+}
+
+.username_navbar h4 {
+    color: yellow;
+    font-size: 20px;
+    border: 2px solid yellow;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-family: 'Chakra Petch', sans-serif;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+
 @media (width<=768px) {
     #links {
         width: 100vw;
@@ -192,7 +280,14 @@
         color: red;
         transform: scale(1.1);
     }
+
+
+
+
 }
+
+
+
 @media (max-width: 512px) {
     #links {
         width: 100vw;
@@ -201,7 +296,7 @@
         position: fixed;
         bottom: -65vh;
         z-index: 99;
-        background-image: url('../../public/assets/bimg5.jpg');
+        background-image: url('/assets/bimg5.jpg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -291,11 +386,93 @@
         font-size: 40px;
         right: 30px;
         top: 30px;
+        z-index: 999;
+
 
     }
+
+    .username_navbar {
+        display: block;
+        position: absolute;
+
+        cursor: pointer;
+        top: 35px;
+        right: 85px;
+    }
+
+    .username_navbar h4 {
+        color: yellow;
+        font-size: 20px;
+        border: 2px solid yellow;
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-family: 'Chakra Petch', sans-serif;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+
 
     #menubar:active {
         color: red;
         transform: scale(1.1);
     }
+
+
+    .user-links {
+
+        display: inline-flex;
+        color: black;
+        width: clamp(100px, 7vw, 300px);
+        margin: 10px;
+
+        background-color: rgba(0, 0, 0, 0);
+        font-weight: bold;
+        padding: 10px 20px 10px 20px;
+        border: 2px solid black;
+        font-family: monospace;
+        cursor: pointer;
+        transition: linear 0.1s;
+    }
+
+    .user-links:hover {
+
+        display: inline-flex;
+        color: black;
+        width: clamp(100px, 7vw, 300px);
+        margin: 10px;
+
+        background-color: yellow;
+        font-weight: bold;
+        padding: 10px 20px 10px 20px;
+        border: 2px solid black;
+        font-family: monospace;
+        cursor: pointer;
+        transition: linear 0.1s;
+
+    }
+
+
+}
+
+@media (width>=768px) {
+    .username_navbar{
+        display: inline-flex;
+        width: fit-content;
+        position: absolute;
+        z-index: 0;
+        cursor: pointer;
+        top: 80px;
+        left: 30px;
+        z-index: 99;
+    }
+    .username_navbar h4{
+        color: yellow;
+        font-size: 22px;
+        border: 2px solid yellow;
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-family: 'Chakra Petch', sans-serif;
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+    
 }

@@ -4,8 +4,9 @@ import images from '../catalogueitems'
 import Aboutus from '../pages/Aboutus'
 import Nav from '../components/Nav';
 import { motion } from "framer-motion"
-import { useInView } from 'react-intersection-observer';
+
 import { useEffect, useState } from 'react';
+import Userinput from '../components/UserSignUp';
 function Home() {
 
 
@@ -19,7 +20,7 @@ function Home() {
     return (
         <div>
             <div className="home">
-
+          
                 <div className="home-content">
                     <motion.section className="monologue"
                         initial={{ opacity: 0, scale: 1 }}

@@ -8,9 +8,11 @@ import { FaCookie } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 function Reach() {
+  
+
     return (
         <div className="reachus">
-
+            <div style={{ position: 'absoulte', top: '-10px' }} id='container' />
             <div className="contactus-2">
                 <pre>Thankyou for coming this far
                 </pre>
@@ -30,11 +32,13 @@ function Reach() {
                 </div>
             </span>
             <div className="icons">
-                <a href="https://maps.app.goo.gl/1mc9r83HjNGB2Yb58"><FaLocationDot className='footer-icons'/></a>
+                <a href="https://maps.app.goo.gl/1mc9r83HjNGB2Yb58"><FaLocationDot className='footer-icons' /></a>
                 <a href="mailto:shobhit141141@gmail.com"><IoMdMail className='footer-icons' /></a>
-                <a href="tel:9958960178"><IoCall className='footer-icons'/></a>
-                <a href="/"><RiInstagramFill className='footer-icons'/></a>
-                <FaLinkedinIn className='footer-icons'/>
+                <a href="tel:9958960178"><IoCall className='footer-icons' /></a>
+                <a href="/"><RiInstagramFill className='footer-icons' /></a>
+
+                <FaLinkedinIn className='footer-icons' />
+
             </div>
 
         </div>

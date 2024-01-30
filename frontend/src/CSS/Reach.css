@@ -74,6 +74,7 @@
 }
 .footer-icons{
     padding: 7px;
+    cursor: pointer;
     transition: linear 0.1s;
 }
 .footer-icons:hover{

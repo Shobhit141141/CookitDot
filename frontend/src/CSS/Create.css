@@ -46,7 +46,37 @@
 } */
 .create{
     margin: 50px;
+
+    
 }
+
+.submit-load{
+    display: flex;
+    gap: 20px;
+}
+.submit-load pre::before{
+    content: " ";
+    font-size: 20px;
+    animation: loader 0.5s infinite steps(4);
+}
+@keyframes loader {
+    0% {
+      content: " ";
+    }
+    25%{
+        content: ". ";
+    }
+    50%{
+        content: ". .";
+    }
+    75%{
+        content: ". . . ";
+    }
+    100%{
+        content: ". . ";
+    } 
+  }
+
 @media (width<=768px) {
     .create{
         margin: 20px;
