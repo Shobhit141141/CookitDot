@@ -21,6 +21,8 @@ function Nav() {
     const { Logout } = useLogout()
     const { user } = useAuthcontext()
 
+    const [width, setWidth] = useState(window.innerWidth);
+
     const handlemenu = (event) => {
         const menubar = document.querySelector('#menubar')
         const menulinks = document.querySelector("#links")
@@ -110,6 +112,20 @@ function Nav() {
         setUser((prevUser) => !prevUser)
     }
 
+    useEffect(() => {
+        const handleResize = () => {
+            setWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const shouldEnableDrag = width >= 768;
+
 
 
     const logoVariants = {
@@ -131,12 +147,12 @@ function Nav() {
         visible: { opacity: 1, scale: 1 },
     };
 
-   
+
 
 
     return (
         <>
-          
+
 
             <motion.div
                 id='menubar'
@@ -151,6 +167,21 @@ function Nav() {
             >
                 <TbMenu />
             </motion.div>
+
+            {user && <motion.div
+                variants={tbMenuVariants}
+                initial="hidden"
+                animate="visible"
+                drag// ={shouldEnableDrag}  // Enable drag property
+                dragMomentum={false}// Disable momentum for smoother dragging
+
+                id='userbar'
+            >
+                {/* <h4>{user.username}</h4> */}
+
+                {user.username}
+
+            </motion.div>}
 
             {/* <div className="nav" id='nav'>
                 <TbMenu  id='menubar' onClick={event => {
@@ -245,19 +276,7 @@ function Nav() {
 
                 </div>
             </div>
-            {user && <motion.span
-                variants={tbMenuVariants}
-                initial="hidden"
-                animate="visible"
-                drag
-                dragMomentum={false}
-                style={{ color: 'white', position: 'absolute' }}
 
-                className='username_navbar'
-            >
-
-                <h4>{user.username}</h4>
-            </motion.span>}
 
 
         </>

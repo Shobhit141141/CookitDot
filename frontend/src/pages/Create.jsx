@@ -19,7 +19,7 @@ function Create() {
     const [submit, setSubmit] = useState(false)
     const {user} = useAuthcontext()
     const navigate = useNavigate()
-
+    const api_url = import.meta.env.VITE_SERVER_URL
     const notify = () => toast.success('recipe added successfully ! ', {
         position: "top-right",
         autoClose: 2000,
@@ -40,7 +40,7 @@ function Create() {
         }
         setSubmit(true);
         const recipeee = { title, time, image, cuisine, recipe, ingredients }
-        const res = await fetch('http://localhost:5000/api/recipe', {
+        const res = await fetch(`${api_url}api/recipe`, {
             method: 'POST',
             body: JSON.stringify(recipeee, null, 2),
             headers: {

@@ -45,6 +45,7 @@ function Update() {
             console.log("error: ", error)
         }
     }
+    const api_url = import.meta.env.VITE_SERVER_URL
 
 
     const headers = {
@@ -62,7 +63,7 @@ function Update() {
         }
 
 
-        axios.get('http://localhost:5000/api/recipe/' + id, config)
+        axios.get(`${api_url}api/recipe/` + id, config)
             .then(res => {
                 setTitle(res.data.title)
                 setTime(res.data.time)
@@ -83,7 +84,7 @@ function Update() {
         setSubmit(true)
         const recipeee = { title, time, image, cuisine, recipe, ingredients }
         if(user){
-            axios.patch('http://localhost:5000/api/recipe/' + id, recipeee, config)
+            axios.patch(`${api_url}api/recipe/` + id, recipeee, config)
             .then(res => {
                 notify()
                 navigate("/Recipes")

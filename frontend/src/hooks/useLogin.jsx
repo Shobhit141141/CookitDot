@@ -35,6 +35,7 @@ import { useState } from "react";
 import { useAuthcontext } from "./useAuthcontext";
 import { Navigate } from "react-router-dom";
 
+
 export const useLogin = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -45,9 +46,9 @@ export const useLogin = () => {
     setLoading(true);
     setError('');
 
-   
+    const api_url = import.meta.env.VITE_SERVER_URL
     try {
-      const response = await fetch('http://localhost:5000/api/user/login', {
+      const response = await fetch(`${api_url}api/user/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify({ username, password })

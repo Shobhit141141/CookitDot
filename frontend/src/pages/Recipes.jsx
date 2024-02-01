@@ -28,10 +28,12 @@ function Recipes() {
         }
     }
 
+    const api_url = import.meta.env.VITE_SERVER_URL
+
     useEffect(() => {
         const fetchRecipe = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/recipe', {
+                const response = await fetch(`${api_url}api/recipe/`, {
                     headers: {
                         'Authorization': `Bearer ${user.token}`
                     }

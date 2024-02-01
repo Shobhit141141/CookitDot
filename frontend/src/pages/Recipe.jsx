@@ -18,11 +18,11 @@ function recipe() {
     const [submit, setSubmit] = useState(true)
     const [owner, ownercheck] = useState(false)
     const { user } = useAuthcontext()
-
+    const api_url = import.meta.env.VITE_SERVER_URL
     const navigate = useNavigate()
     useEffect(() => {
         const fetchrecipe = async () => {
-            const response = await fetch('http://localhost:5000/api/recipe/' + id,
+            const response = await fetch(`${api_url}api/recipe/` + id,
                 {
                     headers: {
                         'Authorization': `Bearer ${user.token}`
@@ -72,7 +72,7 @@ function recipe() {
         let text = `Do you want to delete ${recipee.title} recipe`;
         if (confirm(text) == true) {
             try {
-                const res = await fetch('http://localhost:5000/api/recipe/' + id, {
+                const res = await fetch(`${api_url}api/recipe/` + id, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -95,24 +95,6 @@ function recipe() {
         }
 
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     return (
 
