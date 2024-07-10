@@ -25,7 +25,7 @@ Technologies used:
 
 
 ```
-git clone https://github.com/Shobhit141141/Docify.git
+git clone https://github.com/Shobhit141141/CookitDot.git
 ```
 
 <h2>Frontend Setup</h2>
