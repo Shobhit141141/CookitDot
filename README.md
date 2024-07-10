@@ -25,8 +25,7 @@ Technologies used:
 
 
 ```
-git clone https://github.com/Shobhit141141/Docify.git
-
+git clone [https://github.com/Shobhit141141/Docify.git](https://github.com/Shobhit141141/CookitDot.git)
 ```
 
 <h2>Frontend Setup</h2>
@@ -35,28 +34,22 @@ git clone https://github.com/Shobhit141141/Docify.git
 
 ```
 cd ./frontend
-
 ```
 
 <p>3. Install dependecies</p>
 
 ```
 npm install
-
 ```
 
 <p>4. Setup env variables</p>
-
 ```
 VITE_SERVER_URL=http://localhost:5000
-
 ```
 
 <p>5. Run the frontend</p>
-
 ```
 npm run dev
-
 ```
 
 
@@ -66,14 +59,12 @@ npm run dev
 
 ```
 cd ./backend
-
 ```
 
 <p>3. Install dependecies</p>
 
 ```
 npm install
-
 ```
 
 <p>4. Setup env variables</p>
@@ -82,14 +73,12 @@ npm install
 MONGO_URI= -your-mono-uri-
 PORT=4000
 SECRET= -your-jwt-secret-
-
 ```
 
 <p>5. Run the backend</p>
 
 ```
 npm run dev
-
 ```
 
 
