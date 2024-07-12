@@ -43,11 +43,13 @@ npm install
 ```
 
 <p>4. Setup env variables</p>
+
 ```
 VITE_SERVER_URL=http://localhost:5000
 ```
 
 <p>5. Run the frontend</p>
+
 ```
 npm run dev
 ```
